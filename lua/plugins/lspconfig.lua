@@ -106,8 +106,6 @@ return {
 				},
 			})
 
-			lspconfig.rust_analyzer.setup({})
-
 			lspconfig.gopls.setup({
                 cmd = {"gopls"},
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },

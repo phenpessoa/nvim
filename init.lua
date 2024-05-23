@@ -16,9 +16,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.rtp:prepend(lazypath)
+opt.rtp:prepend(lazypath)
 
 vim.filetype.add({ extension = { templ = "templ" } })
+
+set('n', 'y', '"+y', { noremap = true, silent = true })
+set('v', 'y', '"+y', { noremap = true, silent = true })
 
 set('n', '<leader>Y', 'gg"+yG', { noremap = true, silent = true })
 set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
@@ -44,6 +47,7 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
+opt.clipboard:append('unnamedplus')
 
 g.dap_virtual_text = true
 

@@ -5,6 +5,13 @@ return {
         ft = { "rust" },
         dependencies = "neovim/nvim-lspconfig",
         lazy = false,
+        keys = {
+            {
+                "<leader>re",
+                "<cmd> RustLsp expandMacro <cr>",
+                desc = "Rust expand macro",
+            },
+        },
     },
     {
         'saecki/crates.nvim',
