@@ -1,0 +1,7 @@
+cat <<EOF > /tmp/tmux-256color.terminfo
+tmux-256color|tmux with 256 colors and italics,
+    sitm=\E[3m, ritm=\E[23m,
+    smso=\E[3m, rmso=\E[23m,
+    smul=\E[4m, rmul=\E[24m,
+    colors#256, use=xterm-256color,
+EOF
