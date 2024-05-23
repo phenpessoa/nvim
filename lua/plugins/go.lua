@@ -25,6 +25,11 @@ return {
                 "<cmd> GoAddTag yaml <CR>",
                 desc = "Add yaml struct tags",
             },
+            {
+                "<leader>gfs",
+                "<cmd> GoFillStruct <cr>",
+                desc = "Go Fill Struct",
+            }
         },
     },
 }
