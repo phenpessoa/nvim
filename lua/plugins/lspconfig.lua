@@ -38,9 +38,12 @@ _G.Rename = {
 
 return {
 	{
-		"neovim/nvim-lspconfig",
-        dependencies = { "nvim-telescope/telescope.nvim" },
-		lazy = false,
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "williamboman/mason.nvim",
+        },
+        lazy = false,
         keys = {
             {
                 "gD",
