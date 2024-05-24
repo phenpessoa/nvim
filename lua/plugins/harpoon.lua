@@ -9,7 +9,6 @@ return {
         config = function()
             local harpoon = require "harpoon"
             harpoon:setup()
-            require("telescope").load_extension("harpoon")
         end,
         keys = function()
             local harpoon = require "harpoon"
