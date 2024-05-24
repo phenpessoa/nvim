@@ -27,6 +27,7 @@ set('n', '<leader>Y', 'gg"+yG', { noremap = true, silent = true })
 set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 set('x', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 set('n', '<Esc>', '<cmd> noh <CR>', { noremap = true, silent = true})
+set('n', '<leader>to', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end)
 
 set('i', '<C-h>', '<Left>', { noremap = true, silent = true })
 set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
