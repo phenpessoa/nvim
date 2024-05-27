@@ -92,6 +92,13 @@ return {
                 "<cmd>lua Rename.rename()<CR>",
                 desc = "LSP rename",
             },
+            {
+                "<leader>h",
+                function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                end,
+                desc = "Enable inlay hints",
+            }
         },
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -125,6 +132,16 @@ return {
                     },
                     gofumpt = true,
                     staticcheck = true,
+                    gopls = {
+                        ["ui.inlayhint.hints"] = {
+                            assignVariableTypes = true,
+                            compositeLiteralFields = true,
+                            constantValues = true,
+                            functionTypeParameters = true,
+                            parameterNames = true,
+                            rangeVariableTypes = true,
+                        },
+                    },
 				},
 			})
 
