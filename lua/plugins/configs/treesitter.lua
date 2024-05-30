@@ -16,6 +16,8 @@ return {
         "html",
         "css",
         "proto",
+
+        "dockerfile",
 	},
 	highlight = {
 		enable = true,
