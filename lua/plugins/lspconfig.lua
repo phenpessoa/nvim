@@ -107,6 +107,7 @@ return {
             local util = require "lspconfig/util"
 
 			lspconfig.lua_ls.setup({
+                capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -118,6 +119,7 @@ return {
 			})
 
 			lspconfig.gopls.setup({
+                capabilities = capabilities,
                 cmd = {"gopls"},
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
                 root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -125,14 +127,18 @@ return {
 					env = {
 						GOEXPERIMENT = "rangefunc",
 					},
-                    completeUnimported = true,
-                    usePlaceholders = true,
-                    analyses = {
-                        unusedparams = true,
+                    formatting = {
+                        gofumpt = true,
                     },
-                    gofumpt = true,
-                    staticcheck = true,
                     gopls = {
+                        completeUnimported = true,
+                        usePlaceholders = true,
+                        analyses = {
+                            unusedparams = true,
+                            useany = true,
+                        },
+                        gofumpt = true,
+                        staticcheck = true,
                         ["ui.inlayhint.hints"] = {
                             assignVariableTypes = true,
                             compositeLiteralFields = true,
@@ -142,6 +148,9 @@ return {
                             rangeVariableTypes = true,
                         },
                     },
+                    lintOnSave = "workspace",
+                    vetOnSave = "workspace",
+                    buildOnSave = "workspace",
 				},
 			})
 
