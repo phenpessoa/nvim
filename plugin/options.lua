@@ -11,3 +11,6 @@ opt.expandtab = true
 opt.smartindent = true
 opt.clipboard:append('unnamedplus')
 opt.termguicolors = true
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel=999
