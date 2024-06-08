@@ -6,7 +6,6 @@ return {
     build = ":TSUpdate",
     dependencies = {
       "apple/pkl-neovim",
-      "windwp/nvim-ts-autotag",
     },
     opts = function()
       return require("plugins.configs.treesitter")
