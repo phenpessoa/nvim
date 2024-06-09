@@ -30,6 +30,11 @@ return {
           builtin.help_tags,
           desc = "Find Help",
         },
+        {
+          "<C-O>",
+                    "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+          desc = "Find Browser",
+        },
       }
     end,
     opts = function()
@@ -50,8 +55,15 @@ return {
           grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
           qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
         },
-        extensions = {},
-        extensions_list = {},
+                extensions = {
+          file_browser = {
+            theme = "ivy",
+            hijack_netrw = true,
+          },
+        },
+        extensions_list = {
+          "file_browser",
+        },
       }
     end,
     config = function(_, opts)
@@ -63,5 +75,9 @@ return {
         telescope.load_extension(ext)
       end
     end,
+  },
+    {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
 }

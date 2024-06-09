@@ -14,7 +14,3 @@ opt.termguicolors = true
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel=999
-
-local g = vim.g
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
