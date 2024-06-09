@@ -87,7 +87,7 @@ return {
             {
                 '<C-O>',
                 "<cmd> NvimTreeToggle <CR>",
-                desc = 'Find file in Tree'
+                desc = 'Toggle nvim tree'
             },
         }
     },
