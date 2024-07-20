@@ -6,7 +6,7 @@ local ensure_installed = {
 	"golangci-lint",
 	"golangci-lint-langserver",
 	"golines",
-	"goimports-reviser",
+	"gci",
 
 	"rust-analyzer",
 
