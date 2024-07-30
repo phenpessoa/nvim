@@ -9,7 +9,13 @@ local go_modules_to_ignore = {
 
 local function get_go_module_name()
 	local util = require("lspconfig/util")
+	if not util then
+		return
+	end
 	local root_dir = util.root_pattern("go.work", "go.mod", ".git")(vim.fn.getcwd())
+	if not root_dir then
+		return
+	end
 
 	local file = io.open(root_dir .. "/go.mod", "r")
 	if file then
