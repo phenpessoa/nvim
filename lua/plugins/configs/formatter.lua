@@ -109,6 +109,9 @@ return {
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
+		typescriptreact = {
+			require("formatter.filetypes.typescript").prettier,
+		},
 		html = {
 			require("formatter.filetypes.html").prettier,
 		},

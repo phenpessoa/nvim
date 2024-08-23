@@ -190,7 +190,7 @@ return {
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
-				filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+				filetypes = { "templ", "astro", "javascript", "typescript", "react", "typescriptreact" },
 				settings = {
 					tailwindCSS = {
 						includeLanguages = {
