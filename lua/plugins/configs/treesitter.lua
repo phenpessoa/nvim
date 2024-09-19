@@ -8,6 +8,8 @@ return {
 		"typescript",
 		"pkl",
 		"gleam",
+		"c",
+		"cpp",
 
 		"json",
 		"yaml",

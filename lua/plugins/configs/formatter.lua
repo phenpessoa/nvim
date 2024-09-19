@@ -121,6 +121,9 @@ return {
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
+		c = {
+			require("formatter.filetypes.c").clangformat,
+		},
 		go = get_go_formatters(),
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
