@@ -29,6 +29,13 @@ return {
 					end,
 					desc = "Open floating terminal",
 				},
+				{
+					"<leader>lzd",
+					function()
+						fterm.run("lazydocker")
+					end,
+					desc = "Open floating docker",
+				},
 			}
 		end,
 	},
