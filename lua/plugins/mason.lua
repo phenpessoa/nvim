@@ -3,10 +3,14 @@ local ensure_installed = {
 	"prettier",
 
 	"gopls",
+	"gofumpt",
 	"golangci-lint",
 	"golangci-lint-langserver",
 	"golines",
+	"gotests",
+	"gomodifytags",
 	"gci",
+	"delve",
 
 	"rust-analyzer",
 
