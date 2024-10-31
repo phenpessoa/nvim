@@ -98,30 +98,6 @@ return {
 		},
 	},
 	{
-		"leoluz/nvim-dap-go",
-		ft = "go",
-		dependencies = "mfussenegger/nvim-dap",
-		config = function(_, opts)
-			require("dap-go").setup(opts)
-		end,
-		keys = {
-			{
-				"<leader>dgt",
-				function()
-					require("dap-go").debug_test()
-				end,
-				"Debug go test",
-			},
-			{
-				"<leader>dgl",
-				function()
-					require("dap-go").debug_last_test()
-				end,
-				"Debug last go test",
-			},
-		},
-	},
-	{
 		"theHamsta/nvim-dap-virtual-text",
 		lazy = false,
 		config = function(_, opts)
