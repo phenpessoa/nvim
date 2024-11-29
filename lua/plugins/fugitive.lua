@@ -28,6 +28,14 @@ return {
 				':Git commit -m "',
 				desc = "Begins git commit",
 			},
+			{
+				"<leader>gu",
+				function()
+					local branch_name = vim.fn.trim(vim.fn.system("git rev-parse --abbrev-ref HEAD"))
+					vim.cmd("Git push --set-upstream origin " .. branch_name)
+				end,
+				desc = "Push current branch and set upstream",
+			},
 		},
 	},
 }
