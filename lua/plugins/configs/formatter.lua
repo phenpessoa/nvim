@@ -34,7 +34,7 @@ local function shouldFormatGo()
 	end
 
 	for _, v in pairs(go_modules_to_ignore) do
-		if module_name:find(v) then
+		if module_name:find(v, 1, true) then
 			return false
 		end
 	end
@@ -72,31 +72,31 @@ local function get_go_formatters()
 				args = { "-w", "-m 120" },
 			}
 		end)
-	end
 
-	local util = require("formatter.util")
-	local args = {
-		"write",
-		"-s",
-		util.quote_cmd_arg("standard"),
-	}
-
-	local module_name = get_go_module_name()
-	if module_name then
-		table.insert(args, "-s")
-		table.insert(args, util.quote_cmd_arg("prefix(" .. module_name .. ")"))
-	end
-
-	table.insert(args, "-s")
-	table.insert(args, "default")
-	table.insert(args, "--custom-order")
-
-	table.insert(cmds, function()
-		return {
-			exe = "gci",
-			args = args,
+		local util = require("formatter.util")
+		local args = {
+			"write",
+			"-s",
+			util.quote_cmd_arg("standard"),
 		}
-	end)
+
+		local module_name = get_go_module_name()
+		if module_name then
+			table.insert(args, "-s")
+			table.insert(args, util.quote_cmd_arg("prefix(" .. module_name .. ")"))
+		end
+
+		table.insert(args, "-s")
+		table.insert(args, "default")
+		table.insert(args, "--custom-order")
+
+		table.insert(cmds, function()
+			return {
+				exe = "gci",
+				args = args,
+			}
+		end)
+	end
 
 	return cmds
 end
