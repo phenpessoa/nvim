@@ -20,3 +20,22 @@ vim.filetype.add({ extension = { templ = "templ" } })
 g.dap_virtual_text = true
 
 require("lazy").setup("plugins")
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.blade = {
+	install_info = {
+		url = "https://github.com/EmranMR/tree-sitter-blade",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+	filetype = "blade",
+}
+
+vim.api.nvim_create_augroup("BladeFiletypeRelated", { clear = true })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	group = "BladeFiletypeRelated",
+	pattern = "*.blade.php",
+	callback = function()
+		vim.bo.filetype = "blade"
+	end,
+})

@@ -23,6 +23,8 @@ local ensure_installed = {
 
 	"clangd",
 	"clang-format",
+
+	"intelephense",
 }
 
 local options = {

@@ -228,6 +228,11 @@ return {
 			lspconfig.golangci_lint_ls.setup({
 				filetypes = { "go", "gomod" },
 			})
+
+			lspconfig.intelephense.setup({
+				capabilities = capabilities,
+				filetypes = { "php" },
+			})
 		end,
 	},
 }

@@ -127,6 +127,13 @@ return {
 		cpp = {
 			require("formatter.filetypes.cpp").clangformat,
 		},
+		php = {
+			{
+				exe = "./vendor/bin/pint",
+				stdin = false,
+				ignore_exitcode = true,
+			},
+		},
 		go = get_go_formatters(),
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
