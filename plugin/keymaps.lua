@@ -36,3 +36,7 @@ end, { noremap = true, silent = true })
 set("i", "<C-s>", function()
 	vim.lsp.buf.signature_help()
 end, { noremap = true, silent = true })
+
+set("v", "<leader>ca", function()
+	vim.lsp.buf.code_action()
+end, { noremap = true, silent = true })
