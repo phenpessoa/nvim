@@ -134,6 +134,12 @@ return {
 				ignore_exitcode = true,
 			},
 		},
+		proto = {
+			{
+				exe = "clang-format",
+				args = { "-i" },
+			},
+		},
 		go = get_go_formatters(),
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,

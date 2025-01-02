@@ -165,6 +165,7 @@ return {
 
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
 			})
 
 			lspconfig.ts_ls.setup({
@@ -232,6 +233,11 @@ return {
 			lspconfig.intelephense.setup({
 				capabilities = capabilities,
 				filetypes = { "php" },
+			})
+
+			lspconfig.protols.setup({
+				capabilities = capabilities,
+				filetypes = { "proto" },
 			})
 		end,
 	},
