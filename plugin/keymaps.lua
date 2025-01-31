@@ -40,3 +40,5 @@ end, { noremap = true, silent = true })
 set("v", "<leader>ca", function()
 	vim.lsp.buf.code_action()
 end, { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("x", "<leader>qw", 'c""<Esc>P', { noremap = true, silent = true })
