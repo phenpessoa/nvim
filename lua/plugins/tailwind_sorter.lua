@@ -1,7 +1,6 @@
 return {
 	{
 		"laytan/tailwind-sorter.nvim",
-		dir = "~/dev/clones/tailwind-sorter.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
 		build = "cd formatter && npm ci && npm run build",
 		opts = {
