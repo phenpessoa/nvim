@@ -9,6 +9,7 @@ return {
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "crates" },
+		{ name = "vim-dadbod-completion" },
 	},
 	snippet = {
 		expand = function(args)

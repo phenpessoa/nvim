@@ -12,6 +12,21 @@ return {
 				desc = "Rust expand macro",
 			},
 		},
+		-- config = function()
+		-- 	vim.g.rustaceanvim = {
+		-- 		server = {
+		-- 			default_settings = {
+		-- 				["rust-analyzer"] = {
+		-- 					cargo = {
+		-- 						extraEnv = {
+		-- 							RUSTFLAGS = "-W clippy::all -W clippy::pedantic -W clippy::nursery -W clippy::cargo",
+		-- 						},
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 	}
+		-- end,
 	},
 	{
 		"saecki/crates.nvim",
