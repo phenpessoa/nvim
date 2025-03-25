@@ -207,7 +207,6 @@ return {
 
 			lspconfig.golangci_lint_ls.setup({
 				filetypes = { "go", "gomod" },
-				cmd = { "golangci-lint-langserver" },
 				root_dir = util.root_pattern(".git", "go.mod"),
 				init_options = {
 					command = {
