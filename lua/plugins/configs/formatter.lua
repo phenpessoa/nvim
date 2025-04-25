@@ -118,6 +118,9 @@ return {
 		css = {
 			require("formatter.filetypes.css").prettier,
 		},
+		json = {
+			require("formatter.filetypes.json").prettier,
+		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
