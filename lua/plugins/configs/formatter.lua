@@ -153,6 +153,9 @@ return {
 					exe = "templ fmt",
 				}
 			end,
+			function()
+				vim.cmd("TailwindSort")
+			end,
 		},
 	},
 }
