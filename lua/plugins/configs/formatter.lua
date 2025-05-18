@@ -155,6 +155,7 @@ return {
 			end,
 			function()
 				vim.cmd("TailwindSort")
+				vim.cmd("noa w")
 			end,
 		},
 	},
