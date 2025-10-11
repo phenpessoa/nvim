@@ -117,12 +117,9 @@ return {
 			},
 		},
 		config = function()
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			local util = require("lspconfig/util")
 
 			vim.lsp.config("lua_ls", {
-				capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -132,9 +129,9 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("lua_ls")
 
 			vim.lsp.config("gopls", {
-				capabilities = capabilities,
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
 				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -156,19 +153,19 @@ return {
 					buildOnSave = "workspace",
 				},
 			})
+			vim.lsp.enable("gopls")
 
 			vim.lsp.config("templ", {
-				capabilities = capabilities,
 				filetypes = { "templ" },
 			})
+			vim.lsp.enable("templ")
 
 			vim.lsp.config("clangd", {
-				capabilities = capabilities,
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
 			})
+			vim.lsp.enable("clangd")
 
 			vim.lsp.config("ts_ls", {
-				capabilities = capabilities,
 				init_options = {
 					preferences = {
 						disableSuggestions = true,
@@ -181,19 +178,19 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("ts_ls")
 
 			vim.lsp.config("html", {
-				capabilities = capabilities,
 				filetypes = { "html", "templ" },
 			})
+			vim.lsp.enable("html")
 
 			vim.lsp.config("htmx", {
-				capabilities = capabilities,
 				filetypes = { "html", "templ" },
 			})
+			vim.lsp.enable("htmx")
 
 			vim.lsp.config("tailwindcss", {
-				capabilities = capabilities,
 				filetypes = { "templ", "astro", "javascript", "typescript", "react", "typescriptreact" },
 				settings = {
 					tailwindCSS = {
@@ -203,6 +200,7 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("tailwindcss")
 
 			vim.lsp.config("golangci_lint_ls", {
 				filetypes = { "go", "gomod" },
@@ -222,17 +220,16 @@ return {
 			})
 
 			vim.lsp.config("intelephense", {
-				capabilities = capabilities,
 				filetypes = { "php" },
 			})
+			vim.lsp.enable("intelephense")
 
 			vim.lsp.config("protols", {
-				capabilities = capabilities,
 				filetypes = { "proto" },
 			})
+			vim.lsp.enable("protols")
 
 			vim.lsp.config("svelte", {
-				capabilities = capabilities,
 				filetypes = { "svelte" },
 				settings = {
 					svelte = {
@@ -244,6 +241,7 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("svelte")
 		end,
 	},
 }
