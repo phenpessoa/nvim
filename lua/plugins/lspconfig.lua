@@ -117,12 +117,11 @@ return {
 			},
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			local util = require("lspconfig/util")
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				settings = {
 					Lua = {
@@ -134,7 +133,7 @@ return {
 				},
 			})
 
-			lspconfig.gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -158,17 +157,17 @@ return {
 				},
 			})
 
-			lspconfig.templ.setup({
+			vim.lsp.config("templ", {
 				capabilities = capabilities,
 				filetypes = { "templ" },
 			})
 
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
 			})
 
-			lspconfig.ts_ls.setup({
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				init_options = {
 					preferences = {
@@ -183,17 +182,17 @@ return {
 				},
 			})
 
-			lspconfig.html.setup({
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 				filetypes = { "html", "templ" },
 			})
 
-			lspconfig.htmx.setup({
+			vim.lsp.config("htmx", {
 				capabilities = capabilities,
 				filetypes = { "html", "templ" },
 			})
 
-			lspconfig.tailwindcss.setup({
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 				filetypes = { "templ", "astro", "javascript", "typescript", "react", "typescriptreact" },
 				settings = {
@@ -205,7 +204,7 @@ return {
 				},
 			})
 
-			lspconfig.golangci_lint_ls.setup({
+			vim.lsp.config("golangci_lint_ls", {
 				filetypes = { "go", "gomod" },
 				root_dir = util.root_pattern(".git", "go.mod"),
 				init_options = {
@@ -222,17 +221,17 @@ return {
 				},
 			})
 
-			lspconfig.intelephense.setup({
+			vim.lsp.config("intelephense", {
 				capabilities = capabilities,
 				filetypes = { "php" },
 			})
 
-			lspconfig.protols.setup({
+			vim.lsp.config("protols", {
 				capabilities = capabilities,
 				filetypes = { "proto" },
 			})
 
-			lspconfig.svelte.setup({
+			vim.lsp.config("svelte", {
 				capabilities = capabilities,
 				filetypes = { "svelte" },
 				settings = {
