@@ -117,8 +117,6 @@ return {
 			},
 		},
 		config = function()
-			local util = require("lspconfig/util")
-
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -134,7 +132,6 @@ return {
 			vim.lsp.config("gopls", {
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 				settings = {
 					env = {
 						GOEXPERIMENT = "rangefunc",
@@ -204,7 +201,6 @@ return {
 
 			vim.lsp.config("golangci_lint_ls", {
 				filetypes = { "go", "gomod" },
-				root_dir = util.root_pattern(".git", "go.mod"),
 				init_options = {
 					command = {
 						"golangci-lint",
