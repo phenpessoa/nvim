@@ -156,22 +156,6 @@ return {
 					exe = "templ fmt",
 				}
 			end,
-			function()
-				local bufnr = vim.api.nvim_get_current_buf()
-				local is_tailwind_attached = false
-
-				for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-					if client.name == "tailwindcss" then
-						is_tailwind_attached = true
-						break
-					end
-				end
-
-				if is_tailwind_attached then
-					vim.cmd("TailwindSort")
-					vim.cmd("noa w")
-				end
-			end,
 		},
 	},
 }

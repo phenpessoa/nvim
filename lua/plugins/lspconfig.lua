@@ -187,16 +187,6 @@ return {
 			})
 			vim.lsp.enable("htmx")
 
-			vim.lsp.config("tailwindcss", {
-				filetypes = { "templ", "astro", "javascript", "typescript", "react", "typescriptreact" },
-				settings = {
-					tailwindCSS = {
-						includeLanguages = {
-							templ = "html",
-						},
-					},
-				},
-			})
 			vim.lsp.enable("tailwindcss")
 
 			vim.lsp.config("golangci_lint_ls", {
