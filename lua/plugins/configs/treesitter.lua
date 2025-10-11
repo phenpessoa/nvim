@@ -10,6 +10,7 @@ return {
 		"gleam",
 		"c",
 		"cpp",
+		"svelte",
 
 		"json",
 		"yaml",

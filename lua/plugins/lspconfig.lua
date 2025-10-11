@@ -231,6 +231,20 @@ return {
 				capabilities = capabilities,
 				filetypes = { "proto" },
 			})
+
+			lspconfig.svelte.enable({
+				capabilities = capabilities,
+				filetypes = { "svelte" },
+				settings = {
+					svelte = {
+						plugin = {
+							svelte = {
+								defaultScriptLanguage = "ts",
+							},
+						},
+					},
+				},
+			})
 		end,
 	},
 }

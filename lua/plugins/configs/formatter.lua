@@ -121,6 +121,9 @@ return {
 		json = {
 			require("formatter.filetypes.json").prettier,
 		},
+		svelte = {
+			require("formatter.filetypes.svelte").prettier,
+		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},

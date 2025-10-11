@@ -26,6 +26,8 @@ local ensure_installed = {
 	"protols",
 
 	"intelephense",
+
+	"svelte-language-server",
 }
 
 local options = {
