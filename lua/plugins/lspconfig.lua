@@ -232,7 +232,7 @@ return {
 				filetypes = { "proto" },
 			})
 
-			lspconfig.svelte.enable({
+			lspconfig.svelte.setup({
 				capabilities = capabilities,
 				filetypes = { "svelte" },
 				settings = {
