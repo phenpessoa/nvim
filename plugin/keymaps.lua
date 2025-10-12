@@ -42,3 +42,6 @@ set("v", "<leader>ca", function()
 end, { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("x", "<leader>qw", 'c""<Esc>P', { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-O>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("i", "<C-O>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
