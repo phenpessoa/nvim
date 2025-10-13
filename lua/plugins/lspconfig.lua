@@ -210,10 +210,21 @@ return {
 			})
 			vim.lsp.enable("intelephense")
 
-			vim.lsp.config("protols", {
+			-- vim.lsp.config("protols", {
+			-- 	filetypes = { "proto" },
+			-- })
+			-- vim.lsp.enable("protols")
+
+			vim.lsp.config("buf", {
 				filetypes = { "proto" },
+				cmd = {
+					"buf",
+					"beta",
+					"lsp",
+				},
+				root_markers = { ".git" },
 			})
-			vim.lsp.enable("protols")
+			vim.lsp.enable("buf")
 
 			vim.lsp.config("svelte", {
 				filetypes = { "svelte" },
