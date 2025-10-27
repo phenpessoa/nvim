@@ -28,6 +28,7 @@ local ensure_installed = {
 	"intelephense",
 
 	"svelte-language-server",
+	"astro-language-server",
 }
 
 local options = {

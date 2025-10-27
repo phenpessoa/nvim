@@ -239,6 +239,8 @@ return {
 				},
 			})
 			vim.lsp.enable("svelte")
+
+			vim.lsp.enable("astro")
 		end,
 	},
 }
