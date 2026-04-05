@@ -21,15 +21,17 @@ g.dap_virtual_text = true
 
 require("lazy").setup("plugins")
 
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.blade = {
-	install_info = {
-		url = "https://github.com/EmranMR/tree-sitter-blade",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-	filetype = "blade",
-}
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TSUpdate",
+	callback = function()
+		require("nvim-treesitter.parsers").blade = {
+			install_info = {
+				url = "https://github.com/EmranMR/tree-sitter-blade",
+				branch = "main",
+			},
+		}
+	end,
+})
 
 vim.api.nvim_create_augroup("BladeFiletypeRelated", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
