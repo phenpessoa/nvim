@@ -115,6 +115,13 @@ return {
 				end,
 				desc = "Enable inlay hints",
 			},
+			{
+				"<leader>color",
+				function()
+					vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled())
+				end,
+				desc = "Toggle LSP color decorations",
+			},
 		},
 		config = function()
 			vim.lsp.config("lua_ls", {
