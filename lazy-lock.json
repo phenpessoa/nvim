@@ -18,6 +18,7 @@
   "go.nvim": { "branch": "master", "commit": "3cfece46344d4f35099d3b207c7cae76da0b48d6" },
   "guihua.lua": { "branch": "master", "commit": "c4f1b5ee1a66dbcef0b2c5ee26e42b9757684f61" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
+  "lualine.nvim": { "branch": "master", "commit": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
   "mini.icons": { "branch": "main", "commit": "7fdae2443a0e2910015ca39ad74b50524ee682d3" },
   "nvim-autopairs": { "branch": "master", "commit": "59bce2eef357189c3305e25bc6dd2d138c1683f5" },
