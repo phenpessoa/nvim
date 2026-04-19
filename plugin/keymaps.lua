@@ -44,4 +44,7 @@ end, { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>qw", 'c""<Esc>P', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-O>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>yp", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p:."))
+end, { desc = "Copy file path" })
 vim.keymap.set("i", "<C-O>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
