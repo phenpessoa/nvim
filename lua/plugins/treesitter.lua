@@ -15,6 +15,7 @@ return {
 				"rust",
 				"javascript",
 				"typescript",
+				"tsx",
 				"pkl",
 				"gleam",
 				"c",
