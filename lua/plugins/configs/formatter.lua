@@ -121,6 +121,9 @@ return {
 		json = {
 			require("formatter.filetypes.json").prettier,
 		},
+		yaml = {
+			require("formatter.filetypes.yaml").prettier,
+		},
 		svelte = {
 			require("formatter.filetypes.svelte").prettier,
 		},
