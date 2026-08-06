@@ -7,6 +7,13 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
+			vim.lsp.codelens.refresh = function(opts)
+				vim.lsp.codelens.enable(true, { bufnr = opts and opts.bufnr })
+			end
+			vim.lsp.codelens.clear = function(client_id, bufnr)
+				vim.lsp.codelens.enable(false, bufnr and { bufnr = bufnr } or { client_id = client_id })
+			end
+
 			require("go").setup({
 				tag_options = "",
 			})
