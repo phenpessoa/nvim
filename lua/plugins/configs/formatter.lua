@@ -69,7 +69,7 @@ local function get_go_formatters()
 		table.insert(cmds, function()
 			return {
 				exe = "golines",
-				args = { "-w", "-m 120" },
+				args = { "-w", "-m 120", "--base-formatter=gofmt" },
 			}
 		end)
 
