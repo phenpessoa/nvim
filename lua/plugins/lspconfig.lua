@@ -169,7 +169,26 @@ return {
 			})
 			vim.lsp.enable("clangd")
 
+			local function uses_native_ts(root)
+				local pkg = vim.fs.joinpath(root, "node_modules/typescript/package.json")
+				local ok, lines = pcall(vim.fn.readfile, pkg)
+				if not ok then
+					return false
+				end
+				local ok_json, data = pcall(vim.json.decode, table.concat(lines, "\n"))
+				local version = ok_json and vim.version.parse(data.version or "")
+				return version ~= nil and version.major >= 7
+			end
+
+			local ts_ls_root_dir = vim.lsp.config.ts_ls.root_dir
 			vim.lsp.config("ts_ls", {
+				root_dir = function(bufnr, on_dir)
+					ts_ls_root_dir(bufnr, function(root)
+						if not uses_native_ts(root) then
+							on_dir(root)
+						end
+					end)
+				end,
 				init_options = {
 					preferences = {
 						disableSuggestions = true,
@@ -183,6 +202,7 @@ return {
 				},
 			})
 			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("tsc")
 
 			vim.lsp.config("html", {
 				filetypes = { "html", "templ" },
