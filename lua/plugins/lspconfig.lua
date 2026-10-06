@@ -189,7 +189,6 @@ return {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = "*.go",
 				callback = function(args)
-					-- formatter.nvim saves again after formatting; imports are already done.
 					local ok, format = pcall(require, "formatter.format")
 					if ok and format.saving_currently then
 						return
