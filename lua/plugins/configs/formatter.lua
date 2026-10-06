@@ -98,7 +98,11 @@ local function get_go_formatters()
 		end)
 	end
 
-	return cmds
+	return vim.tbl_map(function(cmd)
+		return function()
+			return vim.tbl_extend("force", cmd(), { tempfile_prefix = ".formatter" })
+		end
+	end, cmds)
 end
 
 return {

@@ -177,6 +177,29 @@ return {
 			})
 			vim.lsp.enable("gopls")
 
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*.go",
+				callback = function(args)
+					-- formatter.nvim saves again after formatting; imports are already done.
+					local ok, format = pcall(require, "formatter.format")
+					if ok and format.saving_currently then
+						return
+					end
+					local client = vim.lsp.get_clients({ bufnr = args.buf, name = "gopls" })[1]
+					if not client then
+						return
+					end
+					local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+					params.context = { only = { "source.organizeImports" }, diagnostics = {} }
+					local res = client:request_sync("textDocument/codeAction", params, 2000, args.buf)
+					for _, action in ipairs(res and res.result or {}) do
+						if action.edit then
+							vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
+						end
+					end
+				end,
+			})
+
 			vim.lsp.config("templ", {
 				filetypes = { "templ" },
 			})
