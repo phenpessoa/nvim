@@ -189,8 +189,10 @@ return {
 					if not client then
 						return
 					end
-					local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
-					params.context = { only = { "source.organizeImports" }, diagnostics = {} }
+					---@type lsp.CodeActionParams
+					local params = vim.tbl_extend("force", vim.lsp.util.make_range_params(0, client.offset_encoding), {
+						context = { only = { "source.organizeImports" }, diagnostics = {} },
+					})
 					local res = client:request_sync("textDocument/codeAction", params, 2000, args.buf)
 					for _, action in ipairs(res and res.result or {}) do
 						if action.edit then
