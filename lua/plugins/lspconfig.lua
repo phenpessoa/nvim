@@ -79,6 +79,15 @@ return {
 							if #items == 0 then
 								items = t.items
 							end
+							local seen = {}
+							items = vim.tbl_filter(function(item)
+								local key = ("%s:%d:%d"):format(item.filename, item.lnum, item.col)
+								if seen[key] then
+									return false
+								end
+								seen[key] = true
+								return true
+							end, items)
 							if #items == 1 then
 								local item = items[1]
 								vim.cmd("normal! m'")
