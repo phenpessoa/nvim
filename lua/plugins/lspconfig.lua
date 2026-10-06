@@ -71,7 +71,25 @@ return {
 			{
 				"gd",
 				function()
-					vim.lsp.buf.definition()
+					vim.lsp.buf.definition({
+						on_list = function(t)
+							local items = vim.tbl_filter(function(item)
+								return not item.filename:match("_templ%.go$")
+							end, t.items)
+							if #items == 0 then
+								items = t.items
+							end
+							if #items == 1 then
+								local item = items[1]
+								vim.cmd("normal! m'")
+								vim.cmd.edit(vim.fn.fnameescape(item.filename))
+								vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
+								return
+							end
+							vim.fn.setqflist({}, " ", { title = t.title, items = items })
+							vim.cmd("botright copen")
+						end,
+					})
 				end,
 				desc = "LSP Definition",
 			},
@@ -163,6 +181,16 @@ return {
 				filetypes = { "templ" },
 			})
 			vim.lsp.enable("templ")
+
+			vim.lsp.config("templ_go", {
+				cmd = { "templ", "lsp" },
+				filetypes = { "go" },
+				root_markers = { "go.work", "go.mod", ".git" },
+				on_init = function(client)
+					client.server_capabilities = { definitionProvider = true }
+				end,
+			})
+			vim.lsp.enable("templ_go")
 
 			vim.lsp.config("clangd", {
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
