@@ -263,6 +263,17 @@ return {
 				},
 			})
 			vim.lsp.enable("ts_ls")
+
+			local tsc_root_dir = vim.lsp.config.tsc.root_dir
+			vim.lsp.config("tsc", {
+				root_dir = function(bufnr, on_dir)
+					ts_ls_root_dir(bufnr, function(root)
+						if uses_native_ts(root) then
+							tsc_root_dir(bufnr, on_dir)
+						end
+					end)
+				end,
+			})
 			vim.lsp.enable("tsc")
 
 			vim.lsp.config("html", {
