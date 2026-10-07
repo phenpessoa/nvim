@@ -90,6 +90,11 @@ return {
 							end, items)
 							if #items == 1 then
 								local item = items[1]
+								local from = vim.fn.getpos(".")
+								from[1] = vim.api.nvim_get_current_buf()
+								vim.fn.settagstack(vim.api.nvim_get_current_win(), {
+									items = { { tagname = vim.fn.expand("<cword>"), from = from } },
+								}, "t")
 								vim.cmd("normal! m'")
 								vim.cmd.edit(vim.fn.fnameescape(item.filename))
 								vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
@@ -253,6 +258,12 @@ return {
 				init_options = {
 					preferences = {
 						disableSuggestions = true,
+					},
+					plugins = {
+						{
+							name = "@astrojs/ts-plugin",
+							location = vim.fn.stdpath("data") .. "/mason/packages/astro-language-server/node_modules",
+						},
 					},
 				},
 				commands = {
