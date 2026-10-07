@@ -171,16 +171,30 @@ return {
 		astro = {
 			function()
 				local util = require("formatter.util")
+				local file = util.get_current_buffer_file_path()
+				local args = { "--stdin-filepath", util.escape_path(file) }
+				local config = vim.fs.find({
+					".prettierrc",
+					".prettierrc.json",
+					".prettierrc.json5",
+					".prettierrc.yaml",
+					".prettierrc.yml",
+					".prettierrc.toml",
+					".prettierrc.js",
+					".prettierrc.cjs",
+					".prettierrc.mjs",
+					".prettierrc.ts",
+					"prettier.config.js",
+					"prettier.config.cjs",
+					"prettier.config.mjs",
+					"prettier.config.ts",
+				}, { upward = true, path = vim.fs.dirname(file), stop = vim.env.HOME })[1]
+				if not config then
+					vim.list_extend(args, { "--plugin", "prettier-plugin-astro", "--parser", "astro" })
+				end
 				return {
 					exe = "prettier",
-					args = {
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-						"--plugin",
-						"prettier-plugin-astro",
-						"--parser",
-						"astro",
-					},
+					args = args,
 					stdin = true,
 					try_node_modules = true,
 				}
