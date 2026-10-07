@@ -113,6 +113,9 @@ return {
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
+		javascriptreact = {
+			require("formatter.filetypes.javascript").prettier,
+		},
 		typescriptreact = {
 			require("formatter.filetypes.typescript").prettier,
 		},
